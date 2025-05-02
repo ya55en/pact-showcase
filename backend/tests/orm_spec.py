@@ -1,11 +1,12 @@
 import pytest
-
 import tortoise
+
 from todo.orm import TodoGroup, TodoItem
 
 pytestmark = pytest.mark.anyio  # avoid using @pytest.mark.asyncio on each async test
 
 
+@pytest.mark.usefixtures('seed_db')
 class TestTodoGroup:
     async def it_stores_itself_as_record_in_the_database(self):
         created = await TodoGroup.create(name='Group', comment='Comment')
@@ -64,8 +65,9 @@ class TestTodoGroup:
         assert len(fetched_items) == 2
         assert fetched_items[0].main_record_equal_to(first_item)
         assert fetched_items[1].main_record_equal_to(second_item)
-        
 
+
+@pytest.mark.usefixtures('seed_db')
 class TestTodoItem:
     async def it_stores_itself_as_record_in_the_database(self):
         created = await TodoItem.create(title='Item', description='Description')
