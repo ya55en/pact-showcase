@@ -7,9 +7,7 @@ export default class TodoApiClient {
   constructor(baseUrl) {
     this.client = axios.create({
       baseURL: baseUrl,
-      headers: {
-        Accept: 'application/json',
-      },
+      headers: { Accept: 'application/json' },
     });
   }
 
