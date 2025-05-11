@@ -1,3 +1,4 @@
+PACKAGE := todoapp
 TEST_DIR := tests
 
 
@@ -7,5 +8,8 @@ test:
 spec:
 	uv run pytest --spec $(TEST_DIR)
 
+run:
+	uv run uvicorn --factory $(PACKAGE).app:create_app --reload
 
-..PHONY: test spec
+
+.PHONY: test spec run

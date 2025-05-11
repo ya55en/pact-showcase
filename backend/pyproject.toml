@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "Simple Todo App backend"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["tortoise-orm>=0.25.0"]
+dependencies = [
+    "starlette>=0.46.2",
+    "tortoise-orm>=0.25.0",
+    "uvicorn>=0.34.2",
+]
 
 [project.urls]
 homepage = "https://github.com/ya55en/pact-showcase"
