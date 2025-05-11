@@ -1,0 +1,6 @@
+*.py[co]
+
+.venv/
+
+# ignore temporarily:
+uv.lock
